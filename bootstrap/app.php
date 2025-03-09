@@ -6,6 +6,7 @@ use Illuminate\Foundation\Configuration\Middleware;
 use App\Http\Middleware\DoctorMiddleware;
 use App\Http\Middleware\PatientMiddleware;
 use App\Http\Middleware\AdminMiddleware;
+use App\Http\Middleware\SuperAdminMiddleware;
 
 return Application::configure(basePath: dirname(__DIR__))
     ->withRouting(
@@ -17,7 +18,8 @@ return Application::configure(basePath: dirname(__DIR__))
         $middleware->alias([
             'doctor' => DoctorMiddleware::class,
             'patient' => PatientMiddleware::class,
-            'admin' => AdminMiddleware::class
+            'admin' => AdminMiddleware::class,
+            'superadmin' => SuperAdminMiddleware::class
         ]);
     })
     ->withExceptions(function (Exceptions $exceptions) {
