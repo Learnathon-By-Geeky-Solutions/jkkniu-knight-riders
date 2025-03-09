@@ -17,6 +17,8 @@ class DoctorMiddleware
     {
         if(!auth()->check()) {
             return redirect()->route('login');
+        }else if(auth()->user()->role == 'superadmin') {
+            return redirect()->route('superadmin.dashboard');
         }else if(auth()->user()->role == 'admin') {
             return redirect()->route('admin.dashboard');
         }else if(auth()->user()->role == 'doctor') {

@@ -17,6 +17,8 @@ class AdminMiddleware
     {
         if(!auth()->check()) {
             return redirect()->route('login');
+        }else if(auth()->user()->role == 'superadmin') {
+            return redirect()->route('superadmin.dashboard');
         }else if(auth()->user()->role == 'admin') {
             return $next($request);
         }else if(auth()->user()->role == 'doctor') {
