@@ -7,22 +7,22 @@ use App\Http\Controllers\SuperAdminController;
 
 Route::get('/', function () {
     return view('welcome');
-});
+})->name('home');
 
 Route::get('/superadmin/dashboard', function () {
-    return view('superadmin.dashboard');
+    return view('backend.superadmin.dashboard');
 })->middleware(['auth', 'verified', 'superadmin'])->name('superadmin.dashboard');
 
 Route::get('/admin/dashboard', function () {
-    return view('admin.dashboard');
+    return view('backend.admin.dashboard');
 })->middleware(['auth', 'verified', 'admin'])->name('admin.dashboard');
 
 Route::get('/doctor/dashboard', function () {
-    return view('doctor.dashboard');
+    return view('backend.doctor.dashboard');
 })->middleware(['auth', 'verified', 'doctor'])->name('doctor.dashboard');
 
 Route::get('/dashboard', function () {
-    return view('dashboard');
+    return view('backend.patients.dashboard');
 })->middleware(['auth', 'verified', 'patient'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
