@@ -11,20 +11,20 @@ class AdminController extends Controller
     {
         $who = 'Admins';
         $users = User::where('role', 'admin')->paginate(5);
-        return view('superadmin.manage-users.index', compact('users', 'who'));
+        return view('backend.superadmin.manage-users.index', compact('users', 'who'));
     }
     public function manageDoctors()
     {
         $who = 'Doctors';
         $users = User::where('role', 'doctor')->paginate(5);   
-        return view('admin.manage-users.index', compact('users', 'who'));
+        return view('backend.admin.manage-users.index', compact('users', 'who'));
     }
 
     public function managePatients()
     {
         $who = 'Patients';
         $users = User::where('role', 'patient')->paginate(5);
-        return view('admin.manage-users.index', compact('users', 'who'));
+        return view('backend.admin.manage-users.index', compact('users', 'who'));
     }
 
     public function deleteUser($id)
@@ -50,7 +50,7 @@ class AdminController extends Controller
             $userType = 'Doctors';
         }
 
-        return view('admin.manage-users.edit', compact('user', 'userType', 'redirectUrl'));
+        return view('backend.admin.manage-users.edit', compact('user', 'userType', 'redirectUrl'));
     }
 
     public function updateUser(Request $request, $id)

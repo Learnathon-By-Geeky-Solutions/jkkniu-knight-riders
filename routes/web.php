@@ -49,3 +49,4 @@ Route::controller(SuperAdminController::class)->prefix('superadmin')->group(func
 })->middleware(['auth', 'verified', 'superadmin']);
 
 require __DIR__.'/auth.php';
+require __DIR__.'/cms.php';
