@@ -1,6 +1,23 @@
 @extends('backend.admin.app')
 @push('style')
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/dropify@0.2.2/dist/css/dropify.min.css">
+    <style>
+        .dropify-wrapper {
+            text-align: center !important;
+        }
+
+        .dropify-preview {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .dropify-render img {
+            display: block;
+            margin: 0 auto;
+            max-width: 100%;
+        }
+    </style>
 @endpush
 @section('content')
     <!-- Main Content -->

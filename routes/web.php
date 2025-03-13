@@ -3,11 +3,12 @@
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\Frontend\Admin\HomeController;
 use App\Http\Controllers\SuperAdminController;
 
-Route::get('/', function () {
-    return view('welcome');
-})->name('home');
+Route::controller(HomeController::class)->group(function () {
+    Route::get('/', 'index')->name('home');
+});
 
 Route::get('/superadmin/dashboard', function () {
     return view('backend.superadmin.dashboard');

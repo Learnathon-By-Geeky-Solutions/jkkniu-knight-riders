@@ -9,38 +9,59 @@
         <div class="p-10 pt-4">
             <div class="bg-white shadow-sm rounded-lg p-4 text-dark pl-5">
                 <h2 class="h5 fw-semibold mb-4 text-center">CMS Site Information</h2>
+                <!-- success message -->
+                @if (session('success'))
+                    <div class="alert alert-success">{{ session('success') }}</div>
+                @endif
 
-                <form action="" method="POST" class="row g-3">
+                <!-- Site Info Form -->
+                <form action="{{ route('cms.site-info.update') }}" method="POST" class="row g-3">
                     @csrf
 
                     <!-- Site Name -->
                     <div class="col-12">
                         <label class="form-label">Site Name</label>
-                        <input type="text" name="site_name" class="form-control" required>
+                        <input type="text" name="site_name" class="form-control" value="{{ $siteInfo->site_name }}">
+                        @error('site_name')
+                            <span class="text-danger">{{ $message }}</span>
+                        @enderror
                     </div>
 
                     <!-- Address -->
                     <div class="col-12">
                         <label class="form-label">Address</label>
-                        <input type="text" name="address" class="form-control">
+                        <input type="text" name="address" class="form-control" value="{{ $siteInfo->address }}">
+                        @error('address')
+                            <span class="text-danger">{{ $message }}</span>
+                        @enderror
                     </div>
 
                     <!-- Copyright Text -->
                     <div class="col-12">
                         <label class="form-label">Copyright Text</label>
-                        <input type="text" name="copyright_text" class="form-control">
+                        <input type="text" name="copyright_text" class="form-control"
+                            value="{{ $siteInfo->copyright_text }}">
+                        @error('copyright_text')
+                            <span class="text-danger">{{ $message }}</span>
+                        @enderror
                     </div>
 
                     <!-- Email -->
                     <div class="col-12">
                         <label class="form-label">Email</label>
-                        <input type="email" name="email" class="form-control" required>
+                        <input type="text" name="email" class="form-control" value="{{ $siteInfo->email }}">
+                        @error('email')
+                            <span class="text-danger">{{ $message }}</span>
+                        @enderror
                     </div>
 
                     <!-- Phone -->
                     <div class="col-12">
                         <label class="form-label">Phone</label>
-                        <input type="text" name="phone" class="form-control">
+                        <input type="text" name="phone" class="form-control" value="{{ $siteInfo->phone }}">
+                        @error('phone')
+                            <span class="text-danger">{{ $message }}</span>
+                        @enderror
                     </div>
 
                     <!-- Social Media Links (Dynamic) -->
@@ -63,7 +84,9 @@
                                     x-show="socials.length > 1">Remove</button>
                             </div>
                         </template>
-
+                        @error('socials')
+                            <span class="text-danger">{{ $message }}</span>
+                        @enderror
                         <button type="button" @click="socials.push({name: '', link: ''})" class="btn btn-primary mt-2">+
                             Add Social</button>
                     </div>
@@ -79,3 +102,28 @@
 
     </div>
 @endsection
+@push('script')
+    <script>
+        toaster("{{ session('status') }}", "{{ session('title') }}", "{{ session('statuscode') }}");
+
+        function toaster(status, title, statuscode) {
+            if (statuscode == 200) {
+                toastr.success(status, title, {
+                    timeOut: 5000,
+                    progressBar: true,
+                    positionClass: 'toast-top-right',
+                    showMethod: 'slideDown',
+                    hideMethod: 'slideUp'
+                });
+            } else {
+                toastr.error(status, title, {
+                    timeOut: 5000,
+                    progressBar: true,
+                    positionClass: 'toast-top-right',
+                    showMethod: 'slideDown',
+                    hideMethod: 'slideUp'
+                });
+            }
+        }
+    </script>
+@endpush
