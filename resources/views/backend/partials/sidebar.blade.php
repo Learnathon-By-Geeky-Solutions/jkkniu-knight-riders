@@ -17,6 +17,9 @@
                     <li>
                         <a href="{{ route('cms.home.banner.index') }}" @click="active = 'home-banner'; localStorage.setItem('activeMenu', 'home-banner')" class="d-block px-3 py-2 text-decoration-none text-dark" :class="{ 'bg-secondary text-white': active === 'home-banner' }">Home Banner</a>
                     </li>
+                    <li>
+                        <a href="{{ route('cms.home.banner.why-choose-us.index') }}" @click="active = 'home-banner-why-choose-us'; localStorage.setItem('activeMenu', 'home-banner-why-choose-us')" class="d-block px-3 py-2 text-decoration-none text-dark" :class="{ 'bg-secondary text-white': active === 'home-banner-why-choose-us' }">Why Choose Us</a>
+                    </li>
                 </ul>
             </div>
         </li>

@@ -31,11 +31,6 @@ class HomeBannerController extends Controller
             $validatedData['section'] = SectionEnum::HOME_BANNER->value;
             if ($request->hasFile('image')) {
                 $banner = CMS::where('page', PageEnum::HOME->value)->where('section', SectionEnum::HOME_BANNER->value)->first();
-                // Delete old image
-                if(isset($banner->image)){
-                    Helper::fileDelete($banner->image);
-                }
-
                 $validatedData['image'] = Helper::fileUpload($request->file('image'), 'cms/home/banner', time() . '_' . $request->file('image')->getClientOriginalName());
             }
 
@@ -49,7 +44,7 @@ class HomeBannerController extends Controller
 
             return redirect()->route('cms.home.banner.index')->with('success', 'Updated successfully');
         } catch (Exception $e) {
-            return redirect()->back()->with('t-error', $e->getMessage());
+            return redirect()->back()->with('error', $e->getMessage());
         }
     }
 

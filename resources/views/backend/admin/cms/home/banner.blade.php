@@ -24,7 +24,7 @@
     <div class="container">
         <div class="p-10 pt-4">
             <div class="bg-white shadow-sm rounded-lg p-4 text-dark pl-5">
-                <h2 class="h5 fw-semibold mb-4 text-center">CMS Home Banner</h2>
+                <h2 class="h5 fw-semibold mb-4 text-center">Home Banner Section</h2>
                 <!-- success message -->
                 @if (session('success'))
                     <div class="alert alert-success">{{ session('success') }}</div>
