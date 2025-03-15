@@ -9,10 +9,10 @@
                 <i class="bi bi-phone d-flex align-items-center ms-4">{{ $siteInfo->phone }}<span></span></i>
             </div>
             <div class="social-links d-none d-md-flex align-items-center">
-                <a href="{{ $socials["Twitter"] ?? '#' }}" class="twitter"><i class="bi bi-twitter-x"></i></a>
-                <a href="{{ $socials["Facebook"] ?? '#' }}" class="facebook"><i class="bi bi-facebook"></i></a>
-                <a href="{{ $socials["Instagram"] ?? '#' }}" class="instagram"><i class="bi bi-instagram"></i></a>
-                <a href="{{ $socials["LinkedIn"] ?? '#' }}" class="linkedin"><i class="bi bi-linkedin"></i></a>
+                <a href="{{ $socials["Twitter"]  ?? '#' }}" class="twitter"><i class="bi bi-twitter-x"></i></a>
+                <a href="{{ $socials["Facebook"]  ?? '#' }}" class="facebook"><i class="bi bi-facebook"></i></a>
+                <a href="{{ $socials["Instagram"]  ?? '#' }}" class="instagram"><i class="bi bi-instagram"></i></a>
+                <a href="{{ $socials["LinkedIn"]  ?? '#' }}" class="linkedin"><i class="bi bi-linkedin"></i></a>
             </div>
         </div>
     </div>

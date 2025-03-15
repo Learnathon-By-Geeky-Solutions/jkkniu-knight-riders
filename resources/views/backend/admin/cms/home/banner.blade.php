@@ -24,27 +24,33 @@
     <div class="container">
         <div class="p-10 pt-4">
             <div class="bg-white shadow-sm rounded-lg p-4 text-dark pl-5">
-                <h2 class="h5 fw-semibold mb-4 text-center">CMS Site Information</h2>
-
-                <form action="" method="POST" class="row g-3" enctype="multipart/form-data">
+                <h2 class="h5 fw-semibold mb-4 text-center">CMS Home Banner</h2>
+                <!-- success message -->
+                @if (session('success'))
+                    <div class="alert alert-success">{{ session('success') }}</div>
+                @endif
+                
+                <form action="{{ route('cms.home.banner.update') }}" method="POST" class="row g-3"
+                    enctype="multipart/form-data">
                     @csrf
-
-                    <!-- Site Name -->
+                    @method('PUT')
+                    <!-- Title -->
                     <div class="col-12">
                         <label class="form-label">Title</label>
-                        <input type="text" name="site_name" class="form-control" required>
+                        <input type="text" name="title" class="form-control" value="{{ $banner->title }}">
                     </div>
 
-                    <!-- Address -->
+                    <!-- Sub Title -->
                     <div class="col-12">
                         <label class="form-label">Sub Title</label>
-                        <input type="text" name="address" class="form-control">
+                        <input type="text" name="sub_title" class="form-control" value="{{ $banner->sub_title }}">
                     </div>
 
                     <!-- Banner Image -->
                     <div class="col-12">
                         <label class="form-label">Banner Image</label>
-                        <input name="file1" type="file" class="dropify" class="form-control" />
+                        <input name="image" type="file" class="dropify" class="form-control"
+                            data-default-file="{{ asset($banner->image) }}" />
                     </div>
 
                     <!-- Submit Button -->

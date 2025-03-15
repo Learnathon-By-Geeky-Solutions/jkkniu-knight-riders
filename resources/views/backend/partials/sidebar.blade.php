@@ -15,7 +15,7 @@
                         <a href="{{ route('cms.site-info') }}" @click="active = 'site-info'; localStorage.setItem('activeMenu', 'site-info')" class="d-block px-3 py-2 text-decoration-none text-dark" :class="{ 'bg-secondary text-white': active === 'site-info' }">Site Information</a>
                     </li>
                     <li>
-                        <a href="{{ route('cms.home.banner') }}" @click="active = 'home-banner'; localStorage.setItem('activeMenu', 'home-banner')" class="d-block px-3 py-2 text-decoration-none text-dark" :class="{ 'bg-secondary text-white': active === 'home-banner' }">Home Banner</a>
+                        <a href="{{ route('cms.home.banner.index') }}" @click="active = 'home-banner'; localStorage.setItem('activeMenu', 'home-banner')" class="d-block px-3 py-2 text-decoration-none text-dark" :class="{ 'bg-secondary text-white': active === 'home-banner' }">Home Banner</a>
                     </li>
                 </ul>
             </div>
