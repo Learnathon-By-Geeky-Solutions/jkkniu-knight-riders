@@ -27,6 +27,7 @@ class HomeController extends Controller
         // home banner and why choose us
         $banner = CMS::where('page', PageEnum::HOME->value)->where('section', SectionEnum::HOME_BANNER->value)->first();
         $why_choose_us = CMS::where('page', PageEnum::HOME->value)->where('section', SectionEnum::HOME_BANNER_WHY_CHOOSE_US->value)->first();
-        return view('welcome', compact('siteInfo', 'socials', 'banner', 'why_choose_us'));
+        $why_choose_us_cards = CMS::where('page', PageEnum::HOME->value)->where('section', SectionEnum::WHY_CHOOSE_US->value)->get();
+        return view('welcome', compact('siteInfo', 'socials', 'banner', 'why_choose_us', 'why_choose_us_cards'));
     }
 }

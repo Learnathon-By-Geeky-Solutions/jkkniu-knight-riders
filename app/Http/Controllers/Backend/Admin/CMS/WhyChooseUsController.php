@@ -82,7 +82,7 @@ class WhyChooseUsController extends Controller
         $validatedData = $request->validate([
             'title' => 'required|string|max:50',
             'description' => 'required|string|max:255',
-            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            // 'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
 
         try {
@@ -94,7 +94,7 @@ class WhyChooseUsController extends Controller
                 ->count();
                 
             if ($count >= 3) {
-                return redirect()->back()
+                return redirect()->route('cms.whyChooseUs')
                     ->with('toast_error', 'Maximum 3 items allowed')
                     ->withInput();
             }
@@ -145,7 +145,7 @@ class WhyChooseUsController extends Controller
         $validatedData = $request->validate([
             'title' => 'nullable|string|max:50',
             'description' => 'nullable|string|max:255',
-            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            // 'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
 
         try {

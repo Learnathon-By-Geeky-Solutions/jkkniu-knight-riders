@@ -49,7 +49,7 @@
                                     @enderror
                                 </div>
         
-                                <div class="mt-3">
+                                {{-- <div class="mt-3">
                                     <label class="form-label" for="image">Icon</label>
                                     <input
                                         data-default-file="{{ isset($choose->image) }}"
@@ -57,7 +57,7 @@
                                     @error('image')
                                         <span class="text-danger">{{ $message }}</span>
                                     @enderror
-                                </div>
+                                </div> --}}
         
                                 <div class="mt-3">
                                     <button type="submit" class="btn btn-primary">Submit</button>

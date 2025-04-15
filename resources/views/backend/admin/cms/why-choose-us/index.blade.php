@@ -41,12 +41,6 @@
             margin-right: 10px;
         }
 
-        .swal2-actions .swal2-styled {
-            display: inline-block !important;
-        }
-
-
-
         /* Toastr customization */
         .toast {
             font-size: 14px;
@@ -193,7 +187,7 @@
                 icon: 'info',
                 showCancelButton: true,
                 confirmButtonText: 'Yes',
-                cancelButtonText: 'No',
+                // cancelButtonText: 'No',
             }).then((result) => {
                 if (result.isConfirmed) {
                     statusChange(id);

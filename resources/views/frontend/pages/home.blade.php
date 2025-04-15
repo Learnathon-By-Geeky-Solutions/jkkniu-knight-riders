@@ -32,8 +32,56 @@
                     <div class="col-lg-8 d-flex align-items-stretch">
                         <div class="d-flex flex-column justify-content-center">
                             <div class="row gy-4">
+                                @php
+                                    $icons = ['bi-clipboard-data', 'bi-gem', 'bi-inboxes'];
+                                @endphp
+                                @forelse ($why_choose_us_cards as  $card)
+                                    <div class="col-xl-4 d-flex align-items-stretch">
+                                        <div class="icon-box" data-aos="zoom-out" data-aos-delay="300">
+                                            <i class="bi {{ $icons[$loop->index] }}" >
+                                            </i>
+                                            <h4>{{ $card->title ?? 'Corporis voluptates officia eiusmod' }}</h4>
+                                            <p>{!! $card->description ?? 'Consequuntur sunt aut quasi enim aliquam quae harum pariatur laboris nisi ut aliquip' !!}</p>
+                                        </div>
+                                    </div><!-- End Icon Box -->
+                                @empty
+                                    <div class="col-xl-4 d-flex align-items-stretch">
+                                        <div class="icon-box" data-aos="zoom-out" data-aos-delay="300">
+                                            <i class="bi bi-clipboard-data"></i>
+                                            <h4>Corporis voluptates officia eiusmod</h4>
+                                            <p>Consequuntur sunt aut quasi enim aliquam quae harum pariatur laboris nisi ut
+                                                aliquip</p>
+                                        </div>
+                                    </div><!-- End Icon Box -->
 
-                                <div class="col-xl-4 d-flex align-items-stretch">
+                                    <div class="col-xl-4 d-flex align-items-stretch">
+                                        <div class="icon-box" data-aos="zoom-out" data-aos-delay="400">
+                                            <i class="bi bi-gem"></i>
+                                            <h4>Ullamco laboris ladore pan</h4>
+                                            <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
+                                                deserunt</p>
+                                        </div>
+                                    </div><!-- End Icon Box -->
+
+                                    <div class="col-xl-4 d-flex align-items-stretch">
+                                        <div class="icon-box" data-aos="zoom-out" data-aos-delay="500">
+                                            <i class="bi bi-inboxes"></i>
+                                            <h4>Labore consequatur incidid dolore</h4>
+                                            <p>Aut suscipit aut cum nemo deleniti aut omnis. Doloribus ut maiores omnis
+                                                facere</p>
+                                        </div>
+                                    </div><!-- End Icon Box -->
+                                @endforelse 
+                                {{-- @foreach ($why_choose_us_cards as $card)
+                                    <div class="col-xl-4 d-flex align-items-stretch">
+                                        <div class="icon-box" data-aos="zoom-out" data-aos-delay="300">
+                                            <img src="{{ asset($card->image) }}" alt="">
+                                            <h4>{{ $card->title ?? 'Corporis voluptates officia eiusmod' }}</h4>
+                                            <p>{!! $card->description ?? 'Consequuntur sunt aut quasi enim aliquam quae harum pariatur laboris nisi ut aliquip' !!}</p>
+                                        </div>
+                                    </div><!-- End Icon Box -->
+                                @endforeach --}}
+                                {{-- <div class="col-xl-4 d-flex align-items-stretch">
                                     <div class="icon-box" data-aos="zoom-out" data-aos-delay="300">
                                         <i class="bi bi-clipboard-data"></i>
                                         <h4>Corporis voluptates officia eiusmod</h4>
@@ -58,7 +106,7 @@
                                         <p>Aut suscipit aut cum nemo deleniti aut omnis. Doloribus ut maiores omnis
                                             facere</p>
                                     </div>
-                                </div><!-- End Icon Box -->
+                                </div><!-- End Icon Box --> --}}
 
                             </div>
                         </div>
