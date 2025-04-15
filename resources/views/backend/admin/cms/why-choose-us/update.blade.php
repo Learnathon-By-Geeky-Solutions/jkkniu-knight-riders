@@ -1,5 +1,25 @@
 @extends('backend.admin.app')
 @section('title', 'CMS | Home')
+@push('style')
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/dropify@0.2.2/dist/css/dropify.min.css">
+    <style>
+        .dropify-wrapper {
+            text-align: center !important;
+        }
+
+        .dropify-preview {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .dropify-render img {
+            display: block;
+            margin: 0 auto;
+            max-width: 100%;
+        }
+    </style>
+@endpush
 @section('content')
     <div class="container-fluid">
         <div class="row">
@@ -52,6 +72,12 @@
     </div>
 @endsection
 @push('script')
+    <script src="https://cdn.jsdelivr.net/npm/dropify@0.2.2/dist/js/dropify.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('.dropify').dropify();
+        });
+    </script>
     <script>
         ClassicEditor
             .create(document.querySelector('#description'))
