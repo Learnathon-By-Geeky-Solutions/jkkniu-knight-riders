@@ -20,6 +20,27 @@
                     <li>
                         <a href="{{ route('cms.home.banner.why-choose-us.index') }}" @click="active = 'home-banner-why-choose-us'; localStorage.setItem('activeMenu', 'home-banner-why-choose-us')" class="d-block px-3 py-2 text-decoration-none text-dark" :class="{ 'bg-secondary text-white': active === 'home-banner-why-choose-us' }">Why Choose Us</a>
                     </li>
+                    <li>
+                        <a href="{{ route('cms.whyChooseUs') }}" @click="active = 'why-choose-us'; localStorage.setItem('activeMenu', 'why-choose-us')" class="d-block px-3 py-2 text-decoration-none text-dark" :class="{ 'bg-secondary text-white': active === 'why-choose-us' }">Why Choose Us Cards</a>
+                    </li>
+                </ul>
+            </div>
+        </li>
+        <li x-data="{ open: window.location.pathname.startsWith('/medical'), active: localStorage.getItem('activeMenu') || '' }" class="position-relative">
+            <button @click="open = !open" class="w-100 d-flex justify-content-between align-items-center px-3 py-2 text-start border-0 bg-transparent">
+                <span>Medical Information</span>
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 transform transition-transform" :class="{ 'rotate-180': open }" viewBox="0 0 20 20" fill="currentColor">
+                    <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
+                </svg>
+            </button>
+            <div style="overflow: hidden;">
+                <ul x-show="open" x-cloak class="ms-3 mt-1 list-unstyled bg-light rounded">
+                    <li>
+                        <a href="{{ route('medical.departments.index') }}" @click="active = 'departments'; localStorage.setItem('activeMenu', 'departments')" class="d-block px-3 py-2 text-decoration-none text-dark" :class="{ 'bg-secondary text-white': active === 'departments' }">Departments</a>
+                    </li>
+                    <li>
+                        <a href="" @click="active = 'doctors'; localStorage.setItem('activeMenu', 'doctors')" class="d-block px-3 py-2 text-decoration-none text-dark" :class="{ 'bg-secondary text-white': active === 'doctors' }">Doctors</a>
+                    </li>
                 </ul>
             </div>
         </li>
